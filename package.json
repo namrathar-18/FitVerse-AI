@@ -1,0 +1,18 @@
+{
+  "name": "fitverse-ai",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n web,server -c cyan,magenta \"npm:dev -w apps/web\" \"npm:dev -w apps/server\"",
+    "build": "npm -w apps/web run build && npm -w apps/server run build",
+    "test": "npm -w apps/server test && npm -w apps/web test",
+    "lint": "npm -w apps/web run lint && npm -w apps/server run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
+
